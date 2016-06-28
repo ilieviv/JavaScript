@@ -1,16 +1,13 @@
-﻿function solve(args) {
-    var len, 
-        input = (args + '').split('\n').map(Number);
-    
-    input.slice(0, 1);
-    len = input.length;
-    
-    input.sort(function (x, y) {
-        return x, y;
-    })
+﻿function sortingArray(args) {
+       arrayLength = +args[0],
+       array = args[1].split(' ').map(Number);
 
-    console.log(input);
+    var sortedArray = array.sort(function (a, b) {
+        return a - b;
+    });
+
+    return sortedArray.join(' ');
 }
 
-solve([6, 3, 4, 1, 5, 2, 6])
-
+// test
+console.log(sortingArray(['6', '3 4 1 5 2 6']));

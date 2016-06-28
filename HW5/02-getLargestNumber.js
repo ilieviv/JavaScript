@@ -1,24 +1,16 @@
-﻿function solve(args) {
-    var a = +args[0],
-        b = +args[1],
-        c = +args[2],
-        first;
+﻿function getLargestNumber(args) {
+    var input = args[0].split(' ').map(Number),
+        firstNumber = input[0],
+        secondNumber = input[1],
+        thirdNumber = input[2];
 
-   
-    first = Math.max(a, b);
+    if (getMax(firstNumber, secondNumber) > thirdNumber) {
+        return getMax(firstNumber, secondNumber);
+    } else {
+        return thirdNumber;
+    }
 
-    console.log(GetMax(first, c));
-        
-
+    function getMax(first, second) {
+        return first > second ? first : second;
+    }
 }
-
-
-function GetMax(first, second) {
-    return Math.max(first, second);
-
-}
-
-
-solve([2, 3, 4])
-
-
