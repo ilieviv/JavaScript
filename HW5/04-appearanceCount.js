@@ -1,18 +1,16 @@
-﻿
-function appearanceCount(args) {
-    var input = args[0].split('\n'),
-        arrayLength = input[0],
-        array = input[1].split(' ').map(Number),
-        x = input[2];
+﻿function solve(args) {
+    var numbers = args[1].split(' ').map(Number),
+        searched = parseInt(args[2]);
 
-    return countAppearance(array, arrayLength, x);
+    return(countNumber(numbers, searched));
 
-    function countAppearance(array, arrLength, x) {
-        var counter = 0,
-            i;
+    function countNumber(arr, number) {
+        var i,
+            counter = 0,
+            arrLength = arr.length;
 
         for (i = 0; i < arrLength; i += 1) {
-            if (array[i] == x) {
+            if (arr[i] == number) {
                 counter += 1;
             }
         }

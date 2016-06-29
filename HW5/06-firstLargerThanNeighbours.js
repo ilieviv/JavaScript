@@ -1,23 +1,20 @@
-function firstLargerThanNeighbours(args) {
-    var input = args[0].split('\n'),
-        arrayLength = input[0],
-        array = input[1].split(' ').map(Number);
+function solve(args) {
+    var numbers = args[1].split(' ').map(Number);
+        
+    console.log(FirstLargerPos(numbers));
 
-    return indexFinder(array, arrayLength);
+    function FirstLargerPos(arr) {
+        var arrLength = arr.length,
+            result=-1;
 
-    function indexFinder(sequence, arrLength) {
-        var index = 0,
-            i;
-        for (i = 1; i < arrLength - 1; i++) {
-            if (sequence[i] > sequence[i - 1] && sequence[i] > sequence[i + 1]) {
-                index = i;
+        for (i = 1; i < arrLength-1; i+=1) {
+            if (arr[i] > arr[i + 1] && arr[i] > arr[i - 1]) {
+                result = i;
                 break;
-            } else {
-                index = -1;
             }
         }
 
-        return index;
+        return result;
     }
 }
 

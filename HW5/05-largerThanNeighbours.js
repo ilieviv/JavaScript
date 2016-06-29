@@ -1,20 +1,28 @@
-function largerThanNeighbours(args) {
-    var input = args[0].split('\n'),
-        arrayLength = input[0],
-        array = input[1].split(' ').map(Number);
+function solve(args) {
+    var numbers = args[1].split(' ').map(Number),
+        length = numbers.length;
+        count = 0;
+    
+    for (var i = 0; i < length; i+=1) {
+        if (checkAtPos(i,numbers)){
+            count += 1;
+        }
+    }
+    console.log(count);
 
-    return neighboursChecker(array, arrayLength);
-
-    function neighboursChecker(sequence, arrLength) {
-        var counter = 0,
-            i;
-        for (i = 1; i < arrLength - 1; i++) {
-            if (sequence[i - 1] < sequence[i] && sequence[i + 1] < sequence[i]) {
-                counter += 1;
+    function checkAtPos(pos, arr) {
+        var arrLength = arr.length,
+            result = false;
+        if (pos !== arrLength - 1 && pos !== 0) {
+            if (arr[pos] > arr[pos - 1] && arr[pos] > arr[pos + 1]) {
+                result = true;
+            }
+            else {
+                result = false;
             }
         }
-
-        return counter;
+        
+        return result;
     }
 }
 
